@@ -3,8 +3,21 @@ import React, { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import Ribbons from "./Ribbons";
 import EnhancedTypewriter from "./EnhancedTypewriter";
+import InfiniteScroll from "./InfiniteScroll";
 
 const Hero: React.FC = () => {
+  // Company items for the infinite scroll
+  const companyItems = [
+    { content: "Innovative Startup" },
+    { content: "Tech Ventures" },
+    { content: "Future Labs" },
+    { content: "Digital Pioneers" },
+    { content: "Cloud Solutions" },
+    { content: "AI Platforms" },
+    { content: "Data Insights" },
+    { content: "Creative Studios" },
+  ];
+
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#080810]">
       {/* Ribbon effect */}
@@ -67,17 +80,21 @@ const Hero: React.FC = () => {
         
         <div className="mt-20 md:mt-32 flex flex-col items-center animate-fade-in" style={{ animationDelay: "0.8s" }}>
           <p className="text-white/50 text-sm uppercase tracking-widest mb-6">Trusted by innovative companies</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-            {["Company 1", "Company 2", "Company 3", "Company 4"].map((company, index) => (
-              <div 
-                key={index} 
-                className="h-8 flex items-center justify-center mix-blend-lighten opacity-70 hover:opacity-100 transition-opacity"
-              >
-                <div className="w-32 h-8 bg-black/30 backdrop-blur-sm rounded-md flex items-center justify-center font-semibold text-white">
-                  {company}
-                </div>
-              </div>
-            ))}
+          
+          {/* Replace the grid with InfiniteScroll */}
+          <div className="w-full md:w-2/3 h-48">
+            <InfiniteScroll
+              items={companyItems}
+              width="100%"
+              maxHeight="100%"
+              itemMinHeight={80}
+              isTilted={true}
+              tiltDirection="left"
+              autoplay={true}
+              autoplaySpeed={0.2}
+              autoplayDirection="down"
+              pauseOnHover={true}
+            />
           </div>
         </div>
       </div>

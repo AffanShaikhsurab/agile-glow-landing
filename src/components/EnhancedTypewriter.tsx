@@ -25,6 +25,7 @@ const EnhancedTypewriter: React.FC<EnhancedTypewriterProps> = ({
   const [isDeleting, setIsDeleting] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
   const [isTypingPaused, setIsTypingPaused] = useState(false);
+  const timeoutRef = useRef<number | null>(null);
   
   useEffect(() => {
     if (!words.length) return;
@@ -36,7 +37,7 @@ const EnhancedTypewriter: React.FC<EnhancedTypewriterProps> = ({
       if (!isDeleting && currentWord === currentFullWord) {
         // Finished typing the word
         setIsTypingPaused(true);
-        setTimeout(() => {
+        timeoutRef.current = window.setTimeout(() => {
           setIsTypingPaused(false);
           setIsDeleting(true);
         }, delayBetweenWords);
@@ -57,7 +58,7 @@ const EnhancedTypewriter: React.FC<EnhancedTypewriterProps> = ({
       }
 
       // Set timeout for typing or deleting
-      const timeout = setTimeout(() => {
+      timeoutRef.current = window.setTimeout(() => {
         if (isDeleting) {
           // Delete a character
           setCurrentWord((prev) => prev.substring(0, prev.length - 1));
@@ -68,16 +69,17 @@ const EnhancedTypewriter: React.FC<EnhancedTypewriterProps> = ({
           );
         }
       }, isDeleting ? deletingSpeed : typingSpeed);
-
-      return () => clearTimeout(timeout);
     };
 
     if (!isTypingPaused) {
-      const timeout = handleTyping();
-      return () => {
-        if (timeout) clearTimeout(timeout);
-      };
+      handleTyping();
     }
+
+    return () => {
+      if (timeoutRef.current !== null) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
   }, [
     words, 
     wordIndex, 
