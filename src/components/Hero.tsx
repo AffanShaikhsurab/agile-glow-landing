@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import Ribbons from "./Ribbons";
 import EnhancedTypewriter from "./EnhancedTypewriter";
 import InfiniteScroll from "./InfiniteScroll";
+import ShinyText from "./ShinyText";
 
 const Hero: React.FC = () => {
   // Company items for the infinite scroll
@@ -40,7 +41,7 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 py-12 relative z-10">
         <div className="flex flex-col items-center justify-center text-center text-white space-y-8">
           <div className="inline-block py-2 px-4 rounded-full bg-black/30 backdrop-blur-sm border border-white/10 text-sm font-medium mb-2 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Software Development Agency
+            <ShinyText text="Software Development Agency" speed={4} />
           </div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold max-w-4xl leading-tight md:leading-tight">
@@ -79,7 +80,9 @@ const Hero: React.FC = () => {
         </div>
         
         <div className="mt-20 md:mt-32 flex flex-col items-center animate-fade-in" style={{ animationDelay: "0.8s" }}>
-          <p className="text-white/50 text-sm uppercase tracking-widest mb-6">Trusted by innovative companies</p>
+          <p className="text-white/50 text-sm uppercase tracking-widest mb-6">
+            <ShinyText text="Trusted by innovative companies" speed={3} />
+          </p>
           
           {/* Full width InfiniteScroll */}
           <div className="w-full h-48">
