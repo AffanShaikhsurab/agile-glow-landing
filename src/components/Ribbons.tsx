@@ -2,22 +2,6 @@
 import { useEffect, useRef } from 'react';
 import { Renderer, Transform, Vec3, Color, Polyline } from 'ogl';
 
-interface RibbonsProps {
-  colors?: string[];
-  baseSpring?: number;
-  baseFriction?: number;
-  baseThickness?: number;
-  offsetFactor?: number;
-  maxAge?: number;
-  pointCount?: number;
-  speedMultiplier?: number;
-  enableFade?: boolean;
-  enableShaderEffect?: boolean;
-  effectAmplitude?: number;
-  backgroundColor?: number[];
-  className?: string;
-}
-
 const Ribbons = ({
   colors = ['#FC8EAC'],
   baseSpring = 0.03,
@@ -31,9 +15,8 @@ const Ribbons = ({
   enableShaderEffect = false,
   effectAmplitude = 2,
   backgroundColor = [0, 0, 0, 0],
-  className = '',
-}: RibbonsProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+}) => {
+  const containerRef = useRef(null);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -60,7 +43,7 @@ const Ribbons = ({
     container.appendChild(gl.canvas);
 
     const scene = new Transform();
-    const lines: any[] = [];
+    const lines = [];
 
     const vertex = `
       precision highp float;
@@ -127,7 +110,11 @@ const Ribbons = ({
       const width = container.clientWidth;
       const height = container.clientHeight;
       renderer.setSize(width, height);
-      lines.forEach(line => line.polyline.resize());
+      lines.forEach(line => {
+        if (line.polyline) {
+          line.polyline.resize();
+        }
+      });
     }
     window.addEventListener('resize', resize);
 
@@ -142,21 +129,15 @@ const Ribbons = ({
         0
       );
 
-      const line = {
-        spring,
-        friction,
-        mouseVelocity: new Vec3(),
-        mouseOffset,
-      };
-
+      // Create points array
       const count = pointCount;
       const points = [];
       for (let i = 0; i < count; i++) {
         points.push(new Vec3());
       }
-      line.points = points;
 
-      line.polyline = new Polyline(gl, {
+      // Create polyline
+      const polyline = new Polyline(gl, {
         points,
         vertex,
         fragment,
@@ -170,35 +151,42 @@ const Ribbons = ({
           uEnableFade: { value: enableFade ? 1.0 : 0.0 },
         },
       });
-      line.polyline.mesh.setParent(scene);
-      lines.push(line);
+      polyline.mesh.setParent(scene);
+
+      // Add complete line object to lines array
+      lines.push({
+        spring,
+        friction,
+        mouseVelocity: new Vec3(),
+        mouseOffset,
+        points,
+        polyline
+      });
     });
 
     resize();
 
     const mouse = new Vec3();
-    function updateMouse(e: MouseEvent | TouchEvent) {
+    function updateMouse(e) {
       let x, y;
       const rect = container.getBoundingClientRect();
-      if ('changedTouches' in e && e.changedTouches && e.changedTouches.length) {
-        x = e.changedTouches[0].clientX - rect.left;
-        y = e.changedTouches[0].clientY - rect.top;
-      } else if ('clientX' in e) {
+      if (e.touches && e.touches.length) {
+        x = e.touches[0].clientX - rect.left;
+        y = e.touches[0].clientY - rect.top;
+      } else {
         x = e.clientX - rect.left;
         y = e.clientY - rect.top;
-      } else {
-        return;
       }
       const width = container.clientWidth;
       const height = container.clientHeight;
       mouse.set((x / width) * 2 - 1, (y / height) * -2 + 1, 0);
     }
-    container.addEventListener('mousemove', updateMouse as EventListener);
-    container.addEventListener('touchstart', updateMouse as EventListener);
-    container.addEventListener('touchmove', updateMouse as EventListener);
+    container.addEventListener('mousemove', updateMouse);
+    container.addEventListener('touchstart', updateMouse);
+    container.addEventListener('touchmove', updateMouse);
 
     const tmp = new Vec3();
-    let frameId: number;
+    let frameId;
     let lastTime = performance.now();
     function update() {
       frameId = requestAnimationFrame(update);
@@ -235,9 +223,9 @@ const Ribbons = ({
 
     return () => {
       window.removeEventListener('resize', resize);
-      container.removeEventListener('mousemove', updateMouse as EventListener);
-      container.removeEventListener('touchstart', updateMouse as EventListener);
-      container.removeEventListener('touchmove', updateMouse as EventListener);
+      container.removeEventListener('mousemove', updateMouse);
+      container.removeEventListener('touchstart', updateMouse);
+      container.removeEventListener('touchmove', updateMouse);
       cancelAnimationFrame(frameId);
       if (gl.canvas && gl.canvas.parentNode === container) {
         container.removeChild(gl.canvas);
@@ -261,7 +249,7 @@ const Ribbons = ({
   return (
     <div
       ref={containerRef}
-      className={`relative w-full h-full ${className}`}
+      className='relative w-full h-full'
     />
   );
 };

@@ -81,12 +81,12 @@
   }
 
   .glass-card {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-xl;
+    @apply bg-black/20 backdrop-blur-md border border-white/10 shadow-xl;
     transition: all 0.3s ease;
   }
 
   .glass-card:hover {
-    @apply bg-white/10 border-white/20 transform -translate-y-1;
+    @apply bg-black/30 border-white/20 transform -translate-y-1;
   }
 
   /* Gradient text */
@@ -106,7 +106,7 @@
   }
 
   .dark-animated-bg {
-    background: linear-gradient(-45deg, #1A1F37, #121420, #241D38, #1A1F37);
+    background: linear-gradient(-45deg, #0F0F15, #121420, #1A1A25, #0F0F15);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
   }

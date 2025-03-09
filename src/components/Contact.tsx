@@ -33,16 +33,16 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-[#0F0F15]">
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedContent className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block py-1 px-3 rounded-full bg-needfit-pink/10 text-needfit-pink text-sm font-medium mb-4">
             Get in Touch
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Ready to start your project?
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-white/70 text-lg">
             Contact us today to discuss how we can help bring your vision to life.
           </p>
         </AnimatedContent>
@@ -119,9 +119,9 @@ const Contact: React.FC = () => {
             direction="horizontal" 
             distance={40}
           >
-            <form onSubmit={handleSubmit} className="space-y-6 bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+            <form onSubmit={handleSubmit} className="space-y-6 bg-black/20 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-white/10">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-1">
                   Your Name
                 </label>
                 <input
@@ -130,7 +130,7 @@ const Contact: React.FC = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-needfit-purple focus:ring-2 focus:ring-needfit-purple/20 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:border-needfit-purple focus:ring-2 focus:ring-needfit-purple/20 outline-none transition-all"
                   placeholder="John Doe"
                   required
                   disabled={formStatus === "submitting" || formStatus === "success"}
@@ -138,7 +138,7 @@ const Contact: React.FC = () => {
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-1">
                   Email Address
                 </label>
                 <input
@@ -147,7 +147,7 @@ const Contact: React.FC = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-needfit-purple focus:ring-2 focus:ring-needfit-purple/20 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:border-needfit-purple focus:ring-2 focus:ring-needfit-purple/20 outline-none transition-all"
                   placeholder="john@example.com"
                   required
                   disabled={formStatus === "submitting" || formStatus === "success"}
@@ -155,7 +155,7 @@ const Contact: React.FC = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-1">
                   Your Message
                 </label>
                 <textarea
@@ -164,7 +164,7 @@ const Contact: React.FC = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-needfit-purple focus:ring-2 focus:ring-needfit-purple/20 outline-none transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:border-needfit-purple focus:ring-2 focus:ring-needfit-purple/20 outline-none transition-all resize-none"
                   placeholder="Tell us about your project..."
                   required
                   disabled={formStatus === "submitting" || formStatus === "success"}

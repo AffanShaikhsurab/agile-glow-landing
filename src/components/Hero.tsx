@@ -6,12 +6,12 @@ import Ribbons from "./Ribbons";
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden dark-animated-bg">
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#080810]">
       {/* Ribbon effect */}
       <div className="absolute inset-0 z-0">
         <Ribbons
           baseThickness={30}
-          colors={['#ffffff', '#a78bfa', '#6366f1']}
+          colors={['#6C0FB2', '#3D7AED', '#E75A82']}
           speedMultiplier={0.5}
           maxAge={500}
           enableFade={false}
@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
       
       <div className="container mx-auto px-4 md:px-6 py-12 relative z-10">
         <div className="flex flex-col items-center justify-center text-center text-white space-y-8">
-          <div className="inline-block py-2 px-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium mb-2 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <div className="inline-block py-2 px-4 rounded-full bg-black/30 backdrop-blur-sm border border-white/10 text-sm font-medium mb-2 animate-fade-in" style={{ animationDelay: "0.2s" }}>
             Software Development Agency
           </div>
           
@@ -47,14 +47,14 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 mt-4 animate-fade-in" style={{ animationDelay: "0.6s" }}>
             <a 
               href="#contact" 
-              className="relative group bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-full font-medium transition-all hover:shadow-lg hover:scale-105 flex items-center gap-2"
+              className="relative group bg-black/30 backdrop-blur-md border border-white/20 text-white hover:bg-white/10 px-8 py-4 rounded-full font-medium transition-all hover:shadow-lg hover:scale-105 flex items-center gap-2"
             >
               Start Your Project 
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a 
               href="#portfolio" 
-              className="px-8 py-4 rounded-full font-medium text-white border border-white/20 hover:bg-white/10 transition-all"
+              className="px-8 py-4 rounded-full font-medium text-white border border-white/10 hover:bg-white/5 transition-all"
             >
               View Our Work
             </a>
@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
                 key={index} 
                 className="h-8 flex items-center justify-center mix-blend-lighten opacity-70 hover:opacity-100 transition-opacity"
               >
-                <div className="w-32 h-8 bg-white/10 backdrop-blur-sm rounded-md flex items-center justify-center font-semibold text-white">
+                <div className="w-32 h-8 bg-black/30 backdrop-blur-sm rounded-md flex items-center justify-center font-semibold text-white">
                   {company}
                 </div>
               </div>
@@ -79,9 +79,9 @@ const Hero: React.FC = () => {
       </div>
       
       {/* Curved divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-background">
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-[#0A0A12]">
         <svg 
-          className="absolute -top-20 left-0 w-full fill-background" 
+          className="absolute -top-20 left-0 w-full fill-[#0A0A12]" 
           viewBox="0 0 1440 96" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg"

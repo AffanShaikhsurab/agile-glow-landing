@@ -59,7 +59,7 @@ const services = [
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="py-20 bg-background">
+    <section id="services" className="py-20 bg-[#0A0A12]">
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedContent className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block py-1 px-3 rounded-full bg-white/10 text-white text-sm font-medium mb-4">

@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
             ))}
             <a
               href="#contact"
-              className="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 px-6 py-2 rounded-full font-semibold transition-all hover:shadow-lg hover:scale-105"
+              className="bg-black/30 backdrop-blur-md border border-white/20 text-white hover:bg-white/10 px-6 py-2 rounded-full font-semibold transition-all hover:shadow-lg hover:scale-105"
             >
               Get Started
             </a>
@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
           ))}
           <a
             href="#contact"
-            className="bg-white/10 text-white py-2 px-4 rounded-md font-semibold text-center hover:bg-white/20"
+            className="bg-black/30 text-white py-2 px-4 rounded-md font-semibold text-center hover:bg-white/10"
             onClick={() => setIsMenuOpen(false)}
           >
             Get Started

@@ -55,7 +55,7 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-gradient-primary text-white">
+    <section id="testimonials" className="py-20 bg-gradient-to-b from-[#0A0A12] to-[#12121A] text-white">
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedContent className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block py-1 px-3 rounded-full bg-white/10 text-white text-sm font-medium mb-4">
@@ -120,7 +120,7 @@ const Testimonials: React.FC = () => {
           </div>
 
           <button
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-white text-needfit-purple p-2 rounded-full shadow-lg hover:scale-110 transition-transform hidden md:block"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-black/50 text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform hidden md:block"
             onClick={handlePrev}
             aria-label="Previous testimonial"
           >
@@ -128,7 +128,7 @@ const Testimonials: React.FC = () => {
           </button>
           
           <button
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 md:translate-x-12 bg-white text-needfit-purple p-2 rounded-full shadow-lg hover:scale-110 transition-transform hidden md:block"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 md:translate-x-12 bg-black/50 text-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform hidden md:block"
             onClick={handleNext}
             aria-label="Next testimonial"
           >

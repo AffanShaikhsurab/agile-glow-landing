@@ -53,16 +53,16 @@ const Portfolio: React.FC = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="portfolio" className="py-20 bg-gray-50">
+    <section id="portfolio" className="py-20 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedContent className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block py-1 px-3 rounded-full bg-needfit-blue/10 text-needfit-blue text-sm font-medium mb-4">
+          <div className="inline-block py-1 px-3 rounded-full bg-needfit-purple/20 text-needfit-purple text-sm font-medium mb-4">
             Our Portfolio
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Innovative solutions for modern challenges
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-white/70 text-lg">
             Explore our latest projects and see how we've helped businesses transform their ideas into reality.
           </p>
         </AnimatedContent>
@@ -73,8 +73,8 @@ const Portfolio: React.FC = () => {
               key={index}
               className={`px-5 py-2 rounded-full transition-all ${
                 activeFilter === filter
-                  ? "bg-needfit-blue text-white shadow-md"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
+                  ? "bg-needfit-purple text-white shadow-md"
+                  : "bg-white/5 text-white/70 hover:bg-white/10"
               }`}
               onClick={() => setActiveFilter(filter)}
             >
@@ -134,7 +134,7 @@ const Portfolio: React.FC = () => {
         <div className="text-center mt-12">
           <a 
             href="#" 
-            className="inline-flex items-center px-8 py-3 rounded-full border border-needfit-blue/20 text-needfit-blue font-medium hover:bg-needfit-blue/5 transition-all"
+            className="inline-flex items-center px-8 py-3 rounded-full border border-needfit-purple/20 text-needfit-purple font-medium hover:bg-needfit-purple/10 transition-all"
           >
             View All Projects <ArrowRight className="ml-2 w-4 h-4" />
           </a>
