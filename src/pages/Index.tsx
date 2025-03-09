@@ -6,6 +6,7 @@ import Services from "../components/Services";
 import Portfolio from "../components/Portfolio";
 import Testimonials from "../components/Testimonials";
 import Contact from "../components/Contact";
+import PixelTrail from "../components/PixelTrail";
 import { ArrowUp } from "lucide-react";
 import { setupScrollAnimations } from "../utils/animation";
 
@@ -33,15 +34,31 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <Hero />
-      <Services />
-      <Portfolio />
+      
+      {/* Add PixelTrail effect to Portfolio section */}
+      <div className="relative">
+        <div className="absolute inset-0 z-0" style={{ pointerEvents: 'none' }}>
+          <PixelTrail
+            gridSize={60}
+            trailSize={0.1}
+            maxAge={250}
+            interpolate={5}
+            color="#6C0FB2"
+            gooeyFilter={{ id: "portfolio-goo-filter", strength: 2 }}
+          />
+        </div>
+        
+        <Services />
+        <Portfolio />
+      </div>
+      
       <Testimonials />
       <Contact />
       
-      <footer className="bg-needfit-dark-blue text-white py-12">
+      <footer className="bg-background text-white py-12 border-t border-white/10">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>

@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
     <header
       className={`fixed w-full top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "py-4 glass shadow-md"
+          ? "py-4 glass-dark shadow-md"
           : "py-6 bg-transparent"
       }`}
     >
@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
             ))}
             <a
               href="#contact"
-              className="bg-white text-needfit-purple px-6 py-2 rounded-full font-semibold transition-all hover:shadow-lg hover:scale-105"
+              className="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 px-6 py-2 rounded-full font-semibold transition-all hover:shadow-lg hover:scale-105"
             >
               Get Started
             </a>
@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Navigation */}
       <div
-        className={`md:hidden absolute top-full left-0 w-full glass backdrop-blur-md shadow-md transition-all duration-300 ${
+        className={`md:hidden absolute top-full left-0 w-full glass-dark backdrop-blur-md shadow-md transition-all duration-300 ${
           isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         } overflow-hidden`}
       >
@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
           ))}
           <a
             href="#contact"
-            className="bg-white text-needfit-purple py-2 px-4 rounded-md font-semibold text-center"
+            className="bg-white/10 text-white py-2 px-4 rounded-md font-semibold text-center hover:bg-white/20"
             onClick={() => setIsMenuOpen(false)}
           >
             Get Started

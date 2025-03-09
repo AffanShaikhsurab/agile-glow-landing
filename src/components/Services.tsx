@@ -21,11 +21,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, del
       <div className="w-14 h-14 rounded-lg bg-gradient-primary flex items-center justify-center mb-6 shadow-lg">
         {icon}
       </div>
-      <h3 className="text-xl font-bold mb-3">{title}</h3>
-      <p className="text-gray-600 flex-grow">{description}</p>
+      <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>
+      <p className="text-white/70 flex-grow">{description}</p>
       <a 
         href="#contact" 
-        className="mt-6 text-needfit-purple font-medium flex items-center group"
+        className="mt-6 text-white/90 hover:text-white font-medium flex items-center group"
       >
         Learn more 
         <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -59,16 +59,16 @@ const services = [
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedContent className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block py-1 px-3 rounded-full bg-needfit-purple/10 text-needfit-purple text-sm font-medium mb-4">
+          <div className="inline-block py-1 px-3 rounded-full bg-white/10 text-white text-sm font-medium mb-4">
             Our Services
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Accelerate your digital transformation
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-white/70 text-lg">
             We combine strategic thinking with technical expertise to deliver exceptional digital products in record time.
           </p>
         </AnimatedContent>
@@ -95,7 +95,7 @@ const Services: React.FC = () => {
           </div>
           <a 
             href="#contact" 
-            className="whitespace-nowrap px-8 py-3 bg-white text-needfit-purple rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all"
+            className="whitespace-nowrap px-8 py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all"
           >
             Get in Touch
           </a>

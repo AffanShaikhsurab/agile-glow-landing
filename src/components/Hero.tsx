@@ -2,38 +2,25 @@
 import React, { useEffect, useRef } from "react";
 import TypewriterText from "./TypewriterText";
 import { ArrowRight } from "lucide-react";
+import Ribbons from "./Ribbons";
 
 const Hero: React.FC = () => {
-  const blurDotRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (blurDotRef.current) {
-        // Update position with some lag for smooth effect
-        const x = e.clientX;
-        const y = e.clientY;
-        
-        // Use requestAnimationFrame for smooth movement
-        window.requestAnimationFrame(() => {
-          if (blurDotRef.current) {
-            blurDotRef.current.style.left = `${x}px`;
-            blurDotRef.current.style.top = `${y}px`;
-          }
-        });
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden animated-bg">
-      {/* Background blur dot */}
-      <div ref={blurDotRef} className="blur-dot" />
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden dark-animated-bg">
+      {/* Ribbon effect */}
+      <div className="absolute inset-0 z-0">
+        <Ribbons
+          baseThickness={30}
+          colors={['#ffffff', '#a78bfa', '#6366f1']}
+          speedMultiplier={0.5}
+          maxAge={500}
+          enableFade={false}
+          enableShaderEffect={true}
+        />
+      </div>
       
       {/* Decorative elements */}
-      <div className="absolute top-1/4 left-10 w-20 h-20 bg-white/10 rounded-full blur-3xl animate-pulse-slow" />
+      <div className="absolute top-1/4 left-10 w-20 h-20 bg-white/5 rounded-full blur-3xl animate-pulse-slow" />
       <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-needfit-pink/10 rounded-full blur-3xl animate-pulse-slow" />
       <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-needfit-blue/10 rounded-full blur-3xl animate-pulse-slow" />
       
@@ -60,7 +47,7 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 mt-4 animate-fade-in" style={{ animationDelay: "0.6s" }}>
             <a 
               href="#contact" 
-              className="relative group bg-white text-needfit-purple px-8 py-4 rounded-full font-medium transition-all hover:shadow-lg hover:scale-105 flex items-center gap-2"
+              className="relative group bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-full font-medium transition-all hover:shadow-lg hover:scale-105 flex items-center gap-2"
             >
               Start Your Project 
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -82,7 +69,7 @@ const Hero: React.FC = () => {
                 key={index} 
                 className="h-8 flex items-center justify-center mix-blend-lighten opacity-70 hover:opacity-100 transition-opacity"
               >
-                <div className="w-32 h-8 bg-white/80 backdrop-blur-sm rounded-md flex items-center justify-center font-semibold text-needfit-dark-blue">
+                <div className="w-32 h-8 bg-white/10 backdrop-blur-sm rounded-md flex items-center justify-center font-semibold text-white">
                   {company}
                 </div>
               </div>
@@ -92,9 +79,9 @@ const Hero: React.FC = () => {
       </div>
       
       {/* Curved divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-white">
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-background">
         <svg 
-          className="absolute -top-20 left-0 w-full fill-white" 
+          className="absolute -top-20 left-0 w-full fill-background" 
           viewBox="0 0 1440 96" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg"
