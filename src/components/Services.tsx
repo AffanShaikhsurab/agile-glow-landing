@@ -3,6 +3,7 @@ import React from "react";
 import AnimatedContent from "./AnimatedContent";
 import { Code, Rocket, Lightbulb, BarChart, ArrowRight } from "lucide-react";
 import ShinyText from "./ShinyText";
+import SpotlightCard from "./SpotlightCard";
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -17,22 +18,23 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, del
       direction="vertical" 
       distance={40} 
       delay={delay} 
-      className="glass-card rounded-xl p-6 flex flex-col h-full relative overflow-hidden"
     >
-      <div className="w-14 h-14 rounded-lg bg-needfit-accent flex items-center justify-center mb-6 shadow-lg">
-        {icon}
-      </div>
-      <h3 className="text-xl font-bold mb-3 text-white">
-        <ShinyText text={title} speed={3} />
-      </h3>
-      <p className="text-white/70 flex-grow">{description}</p>
-      <a 
-        href="#contact" 
-        className="mt-6 text-white/90 hover:text-white font-medium flex items-center group"
-      >
-        Learn more 
-        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-      </a>
+      <SpotlightCard className="h-full p-6 flex flex-col relative overflow-hidden rounded-xl" spotlightColor="rgba(128, 128, 128, 0.2)">
+        <div className="w-14 h-14 rounded-lg bg-gray-700 flex items-center justify-center mb-6 shadow-lg">
+          {icon}
+        </div>
+        <h3 className="text-xl font-bold mb-3 text-white">
+          <ShinyText text={title} speed={3} />
+        </h3>
+        <p className="text-white/70 flex-grow">{description}</p>
+        <a 
+          href="#contact" 
+          className="mt-6 text-white/90 hover:text-white font-medium flex items-center group"
+        >
+          Learn more 
+          <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </a>
+      </SpotlightCard>
     </AnimatedContent>
   );
 };

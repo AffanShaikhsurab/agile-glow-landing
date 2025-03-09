@@ -1,7 +1,9 @@
+
 import React, { useState } from "react";
 import AnimatedContent from "./AnimatedContent";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import ShinyText from "./ShinyText";
+import SpotlightCard from "./SpotlightCard";
 
 interface Testimonial {
   id: number;
@@ -19,7 +21,7 @@ const testimonials: Testimonial[] = [
     position: "CEO",
     company: "HealthTech Solutions",
     quote: "NeedFit transformed our vision into a working MVP in just 6 weeks. Their agile approach and attention to detail exceeded our expectations at every turn.",
-    image: "https://via.placeholder.com/100x100/6C0FB2/FFFFFF?text=SJ",
+    image: "https://via.placeholder.com/100x100/333333/FFFFFF?text=SJ",
   },
   {
     id: 2,
@@ -27,7 +29,7 @@ const testimonials: Testimonial[] = [
     position: "Product Director",
     company: "EcoTrack",
     quote: "Working with NeedFit was a game-changer for our product development. They not only delivered on time but brought innovative solutions to challenges we hadn't even considered.",
-    image: "https://via.placeholder.com/100x100/3D7AED/FFFFFF?text=MC",
+    image: "https://via.placeholder.com/100x100/444444/FFFFFF?text=MC",
   },
   {
     id: 3,
@@ -35,7 +37,7 @@ const testimonials: Testimonial[] = [
     position: "Founder",
     company: "FinNext",
     quote: "The team at NeedFit truly understands the startup journey. They were partners in our success, helping us iterate quickly and establish product-market fit.",
-    image: "https://via.placeholder.com/100x100/E75A82/FFFFFF?text=ER",
+    image: "https://via.placeholder.com/100x100/555555/FFFFFF?text=ER",
   },
 ];
 
@@ -80,7 +82,7 @@ const Testimonials: React.FC = () => {
                   key={testimonial.id} 
                   className="min-w-full px-4"
                 >
-                  <div className="glass rounded-2xl p-8 md:p-10 text-center relative">
+                  <SpotlightCard className="p-8 md:p-10 text-center relative rounded-2xl" spotlightColor="rgba(128, 128, 128, 0.2)">
                     <Quote className="mx-auto text-white/20 w-16 h-16 mb-6" />
                     
                     <p className="text-lg md:text-xl mb-8 text-white/90">
@@ -102,7 +104,7 @@ const Testimonials: React.FC = () => {
                         {testimonial.position}, {testimonial.company}
                       </p>
                     </div>
-                  </div>
+                  </SpotlightCard>
                 </div>
               ))}
             </div>

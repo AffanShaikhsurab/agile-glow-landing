@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,11 +64,11 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         needfit: {
-          purple: "#6C0FB2",
-          blue: "#3D7AED",
-          pink: "#E75A82",
-          "dark-blue": "#1A1F37",
-          accent: "#8B5CF6",
+          purple: "#555555", // Replaced with gray
+          blue: "#666666", // Replaced with gray
+          pink: "#777777", // Replaced with gray
+          "dark-blue": "#111111", // Darkened
+          accent: "#888888", // Replaced with gray
         },
       },
       borderRadius: {
@@ -147,9 +148,9 @@ export default {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "gradient-primary": "linear-gradient(90deg, #6C0FB2 0%, #3D7AED 100%)",
-        "gradient-secondary": "linear-gradient(90deg, #8B5CF6 0%, #8B5CF6 100%)",
-        "gradient-dark": "linear-gradient(135deg, #1A1F37 0%, #1A1F37 100%)",
+        "gradient-primary": "linear-gradient(90deg, #555555 0%, #666666 100%)", // Changed to grays
+        "gradient-secondary": "linear-gradient(90deg, #444444 0%, #666666 100%)", // Changed to grays
+        "gradient-dark": "linear-gradient(135deg, #111111 0%, #222222 100%)", // Darkened
       },
     },
   },

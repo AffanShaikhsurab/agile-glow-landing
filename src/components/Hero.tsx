@@ -21,11 +21,11 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-black">
-      {/* Ribbon effect */}
+      {/* Ribbon effect with grey colors */}
       <div className="absolute inset-0 z-0">
         <Ribbons
           baseThickness={30}
-          colors={['#8B5CF6']} // Kept accent color
+          colors={['#555555']} // Changed to grey
           speedMultiplier={0.5}
           maxAge={500}
           enableFade={false}
@@ -33,10 +33,10 @@ const Hero: React.FC = () => {
         />
       </div>
       
-      {/* Decorative elements */}
+      {/* Decorative elements with grey accents */}
       <div className="absolute top-1/4 left-10 w-20 h-20 bg-white/5 rounded-full blur-3xl animate-pulse-slow" />
-      <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-needfit-accent/10 rounded-full blur-3xl animate-pulse-slow" />
-      <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-needfit-accent/10 rounded-full blur-3xl animate-pulse-slow" />
+      <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-gray-600/10 rounded-full blur-3xl animate-pulse-slow" />
+      <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-gray-600/10 rounded-full blur-3xl animate-pulse-slow" />
       
       <div className="container mx-auto px-4 md:px-6 py-12 relative z-10">
         <div className="flex flex-col items-center justify-center text-center text-white space-y-8">
