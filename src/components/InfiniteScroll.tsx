@@ -64,7 +64,7 @@ export default function InfiniteScroll({
 
     divItems.forEach((child, i) => {
       const y = i * totalItemHeight;
-      gsap.set(child, { y });
+      gsap.set(child as HTMLElement, { y });
     });
 
     const observer = Observer.create({
@@ -81,7 +81,7 @@ export default function InfiniteScroll({
         const d = (event as WheelEvent).type === "wheel" ? -deltaY : deltaY;
         const distance = isDragging ? d * 5 : d * 10;
         divItems.forEach((child) => {
-          gsap.to(child, {
+          gsap.to(child as HTMLElement, {
             duration: 0.5,
             ease: "expo.out",
             y: `+=${distance}`,
@@ -100,7 +100,7 @@ export default function InfiniteScroll({
 
       const tick = () => {
         divItems.forEach((child) => {
-          gsap.set(child, {
+          gsap.set(child as HTMLElement, {
             y: `+=${speedPerFrame}`,
             modifiers: {
               y: gsap.utils.unitize(wrapFn)
@@ -156,13 +156,15 @@ export default function InfiniteScroll({
         {`
         .infinite-scroll-wrapper {
           max-height: ${maxHeight};
+          width: 100%;
         }
 
         .infinite-scroll-container {
-          width: ${width};
+          width: ${width === "30rem" ? "100%" : width};
         }
 
         .infinite-scroll-item {
+          width: 100%;
           height: ${itemMinHeight}px;
           margin-top: ${negativeMargin};
         }

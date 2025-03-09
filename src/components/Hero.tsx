@@ -81,8 +81,8 @@ const Hero: React.FC = () => {
         <div className="mt-20 md:mt-32 flex flex-col items-center animate-fade-in" style={{ animationDelay: "0.8s" }}>
           <p className="text-white/50 text-sm uppercase tracking-widest mb-6">Trusted by innovative companies</p>
           
-          {/* Replace the grid with InfiniteScroll */}
-          <div className="w-full md:w-2/3 h-48">
+          {/* Full width InfiniteScroll */}
+          <div className="w-full h-48">
             <InfiniteScroll
               items={companyItems}
               width="100%"

@@ -36,6 +36,7 @@
   padding-inline: 1rem;
   cursor: grab;
   transform-origin: center center;
+  width: 100%;
 }
 
 .infinite-scroll-item {
@@ -55,6 +56,7 @@
   box-sizing: border-box;
   position: relative;
   transition: all 0.3s ease;
+  width: 100%;
 }
 
 .infinite-scroll-item:hover {
