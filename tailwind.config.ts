@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -68,6 +67,7 @@ export default {
           blue: "#3D7AED",
           pink: "#E75A82",
           "dark-blue": "#1A1F37",
+          accent: "#8B5CF6",
         },
       },
       borderRadius: {
@@ -148,7 +148,7 @@ export default {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "gradient-primary": "linear-gradient(90deg, #6C0FB2 0%, #3D7AED 100%)",
-        "gradient-secondary": "linear-gradient(90deg, #3D7AED 0%, #E75A82 100%)",
+        "gradient-secondary": "linear-gradient(90deg, #8B5CF6 0%, #8B5CF6 100%)",
         "gradient-dark": "linear-gradient(135deg, #1A1F37 0%, #1A1F37 100%)",
       },
     },

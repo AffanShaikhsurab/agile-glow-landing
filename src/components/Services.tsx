@@ -18,7 +18,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, del
       delay={delay} 
       className="glass-card rounded-xl p-6 flex flex-col h-full"
     >
-      <div className="w-14 h-14 rounded-lg bg-gradient-primary flex items-center justify-center mb-6 shadow-lg">
+      <div className="w-14 h-14 rounded-lg bg-needfit-accent flex items-center justify-center mb-6 shadow-lg">
         {icon}
       </div>
       <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>

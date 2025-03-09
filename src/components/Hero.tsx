@@ -1,8 +1,8 @@
 
 import React, { useEffect, useRef } from "react";
-import TypewriterText from "./TypewriterText";
 import { ArrowRight } from "lucide-react";
 import Ribbons from "./Ribbons";
+import EnhancedTypewriter from "./EnhancedTypewriter";
 
 const Hero: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <Ribbons
           baseThickness={30}
-          colors={['#6C0FB2', '#3D7AED', '#E75A82']}
+          colors={['#8B5CF6']} // Updated to use single accent color
           speedMultiplier={0.5}
           maxAge={500}
           enableFade={false}
@@ -21,8 +21,8 @@ const Hero: React.FC = () => {
       
       {/* Decorative elements */}
       <div className="absolute top-1/4 left-10 w-20 h-20 bg-white/5 rounded-full blur-3xl animate-pulse-slow" />
-      <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-needfit-pink/10 rounded-full blur-3xl animate-pulse-slow" />
-      <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-needfit-blue/10 rounded-full blur-3xl animate-pulse-slow" />
+      <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-needfit-accent/10 rounded-full blur-3xl animate-pulse-slow" />
+      <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-needfit-accent/10 rounded-full blur-3xl animate-pulse-slow" />
       
       <div className="container mx-auto px-4 md:px-6 py-12 relative z-10">
         <div className="flex flex-col items-center justify-center text-center text-white space-y-8">
@@ -31,13 +31,17 @@ const Hero: React.FC = () => {
           </div>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold max-w-4xl leading-tight md:leading-tight">
-            <TypewriterText 
-              text="Turning ideas into digital" 
-              delay={500}
-              className="block"
+            <EnhancedTypewriter 
+              words={[
+                "Turning ideas into digital products at the speed of thought",
+                "Creating innovative solutions for modern businesses",
+                "Building the future of digital experiences"
+              ]}
+              typingSpeed={80}
+              deletingSpeed={40}
+              delayBetweenWords={2000}
+              className="block text-gradient-primary"
             />
-            <span className="text-gradient-primary">products</span> at the
-            <span className="text-gradient-secondary"> speed of thought</span>
           </h1>
           
           <p className="text-lg md:text-xl max-w-2xl text-white/80 animate-fade-in" style={{ animationDelay: "0.4s" }}>
