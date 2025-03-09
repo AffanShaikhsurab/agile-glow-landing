@@ -1,10 +1,10 @@
 
 .shiny-text {
-  color: #b5b5b5; /* Brightened the gray color for more contrast */
+  color: #b5b5b5; /* Base text color */
   background: linear-gradient(
     120deg,
     rgba(255, 255, 255, 0) 40%,
-    rgba(255, 255, 255, 1) 50%, /* Made the shine brighter */
+    rgba(13, 71, 161, 0.8) 50%, /* Dark blue shine */
     rgba(255, 255, 255, 0) 60%
   );
   background-size: 200% 100%;
@@ -25,4 +25,18 @@
 
 .shiny-text.disabled {
   animation: none; 
+}
+
+/* Added pulse animation for additional effect */
+.shiny-text.pulse {
+  animation: shine 5s linear infinite, pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }

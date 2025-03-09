@@ -2,13 +2,21 @@
 .card-spotlight {
   position: relative;
   border-radius: 1.5rem;
-  border: 1px solid rgba(128, 128, 128, 0.2);
+  border: 1px solid rgba(13, 71, 161, 0.2);
   background-color: #000;
   padding: 2rem;
   overflow: hidden;
   --mouse-x: 50%;
   --mouse-y: 50%;
-  --spotlight-color: rgba(128, 128, 128, 0.2);
+  --spotlight-color: rgba(13, 71, 161, 0.3);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.card-spotlight.is-hovered {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+  border-color: rgba(13, 71, 161, 0.4);
 }
 
 .card-spotlight::before {
@@ -22,9 +30,105 @@
   opacity: 0;
   transition: opacity 0.5s ease;
   pointer-events: none;
+  z-index: 1;
 }
 
 .card-spotlight:hover::before,
-.card-spotlight:focus-within::before {
-  opacity: 0.8;
+.card-spotlight:focus-within::before,
+.card-spotlight.is-hovered::before {
+  opacity: 0.9;
+}
+
+.card-spotlight::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(13, 71, 161, 0.01) 0%,
+    rgba(13, 71, 161, 0.3) 25%,
+    rgba(13, 71, 161, 0.01) 50%
+  );
+  z-index: 0;
+  opacity: 0;
+  transform: rotate(0deg);
+  transition: opacity 0.5s ease, transform 60s linear;
+  pointer-events: none;
+}
+
+.card-spotlight:hover::after,
+.card-spotlight:focus-within::after,
+.card-spotlight.is-hovered::after {
+  opacity: 0.15;
+  transform: rotate(360deg);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Project details modal animations */
+.project-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.project-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-modal-content {
+  background-color: #111;
+  border: 1px solid rgba(13, 71, 161, 0.3);
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 80%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.project-modal.show .project-modal-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(13, 71, 161, 0.2);
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.project-modal-close:hover {
+  background: rgba(13, 71, 161, 0.5);
 }

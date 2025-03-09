@@ -1,19 +1,26 @@
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./SpotlightCard.css";
 
 interface SpotlightCardProps {
   children: React.ReactNode;
   className?: string;
   spotlightColor?: string;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+  onClick?: () => void;
 }
 
 const SpotlightCard: React.FC<SpotlightCardProps> = ({ 
   children, 
   className = "", 
-  spotlightColor = "rgba(128, 128, 128, 0.2)" 
+  spotlightColor = "rgba(13, 71, 161, 0.3)", 
+  onMouseEnter,
+  onMouseLeave,
+  onClick
 }) => {
   const divRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!divRef.current) return;
@@ -27,11 +34,24 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
     divRef.current.style.setProperty("--spotlight-color", spotlightColor);
   };
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    onMouseEnter && onMouseEnter();
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    onMouseLeave && onMouseLeave();
+  };
+
   return (
     <div
       ref={divRef}
       onMouseMove={handleMouseMove}
-      className={`card-spotlight ${className}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={onClick}
+      className={`card-spotlight ${isHovered ? 'is-hovered' : ''} ${className}`}
     >
       {children}
     </div>
