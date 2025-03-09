@@ -1,7 +1,7 @@
-
 import React, { useState } from "react";
 import AnimatedContent from "./AnimatedContent";
 import { ArrowRight } from "lucide-react";
+import ShinyText from "./ShinyText";
 
 interface Project {
   id: number;
@@ -53,11 +53,11 @@ const Portfolio: React.FC = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="portfolio" className="py-20 bg-background">
+    <section id="portfolio" className="py-20 bg-black">
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedContent className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block py-1 px-3 rounded-full bg-needfit-purple/20 text-needfit-purple text-sm font-medium mb-4">
-            Our Portfolio
+          <div className="inline-block py-1 px-3 rounded-full bg-gray-800/70 text-white text-sm font-medium mb-4">
+            <ShinyText text="Our Portfolio" speed={3} />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Innovative solutions for modern challenges
@@ -73,7 +73,7 @@ const Portfolio: React.FC = () => {
               key={index}
               className={`px-5 py-2 rounded-full transition-all ${
                 activeFilter === filter
-                  ? "bg-needfit-purple text-white shadow-md"
+                  ? "bg-gray-800 text-white shadow-md"
                   : "bg-white/5 text-white/70 hover:bg-white/10"
               }`}
               onClick={() => setActiveFilter(filter)}
@@ -110,7 +110,7 @@ const Portfolio: React.FC = () => {
                     {project.category}
                   </span>
                   <h3 className="text-xl md:text-2xl font-bold text-white mt-1 mb-2">
-                    {project.title}
+                    <ShinyText text={project.title} speed={3} />
                   </h3>
                   <p className={`text-white/80 mb-4 transition-all duration-300 ${
                     hoveredProject === project.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -134,7 +134,7 @@ const Portfolio: React.FC = () => {
         <div className="text-center mt-12">
           <a 
             href="#" 
-            className="inline-flex items-center px-8 py-3 rounded-full border border-needfit-purple/20 text-needfit-purple font-medium hover:bg-needfit-purple/10 transition-all"
+            className="inline-flex items-center px-8 py-3 rounded-full border border-gray-800/20 text-white font-medium hover:bg-gray-800/10 transition-all"
           >
             View All Projects <ArrowRight className="ml-2 w-4 h-4" />
           </a>

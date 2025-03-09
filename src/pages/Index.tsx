@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
@@ -34,7 +33,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-black text-foreground">
       <Navbar />
       <Hero />
       
@@ -58,7 +57,7 @@ const Index = () => {
       <Testimonials />
       <Contact />
       
-      <footer className="bg-background text-white py-12 border-t border-white/10">
+      <footer className="bg-black text-white py-12 border-t border-gray-800">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>

@@ -20,12 +20,12 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#080810]">
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-black">
       {/* Ribbon effect */}
       <div className="absolute inset-0 z-0">
         <Ribbons
           baseThickness={30}
-          colors={['#8B5CF6']} // Updated to use single accent color
+          colors={['#8B5CF6']} // Kept accent color
           speedMultiplier={0.5}
           maxAge={500}
           enableFade={false}
@@ -103,9 +103,9 @@ const Hero: React.FC = () => {
       </div>
       
       {/* Curved divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-[#0A0A12]">
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-black">
         <svg 
-          className="absolute -top-20 left-0 w-full fill-[#0A0A12]" 
+          className="absolute -top-20 left-0 w-full fill-black" 
           viewBox="0 0 1440 96" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg"

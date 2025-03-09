@@ -1,7 +1,7 @@
-
 import React, { useState } from "react";
 import AnimatedContent from "./AnimatedContent";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import ShinyText from "./ShinyText";
 
 interface Testimonial {
   id: number;
@@ -55,11 +55,11 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-b from-[#0A0A12] to-[#12121A] text-white">
+    <section id="testimonials" className="py-20 bg-black text-white">
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedContent className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block py-1 px-3 rounded-full bg-white/10 text-white text-sm font-medium mb-4">
-            Client Testimonials
+            <ShinyText text="Client Testimonials" speed={3} />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             What our clients say about us
@@ -95,7 +95,9 @@ const Testimonials: React.FC = () => {
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <h4 className="text-lg font-bold">{testimonial.name}</h4>
+                      <h4 className="text-lg font-bold">
+                        <ShinyText text={testimonial.name} speed={3} />
+                      </h4>
                       <p className="text-white/70">
                         {testimonial.position}, {testimonial.company}
                       </p>

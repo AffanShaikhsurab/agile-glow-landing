@@ -2,6 +2,7 @@
 import React from "react";
 import AnimatedContent from "./AnimatedContent";
 import { Code, Rocket, Lightbulb, BarChart, ArrowRight } from "lucide-react";
+import ShinyText from "./ShinyText";
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -16,12 +17,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, del
       direction="vertical" 
       distance={40} 
       delay={delay} 
-      className="glass-card rounded-xl p-6 flex flex-col h-full"
+      className="glass-card rounded-xl p-6 flex flex-col h-full relative overflow-hidden"
     >
       <div className="w-14 h-14 rounded-lg bg-needfit-accent flex items-center justify-center mb-6 shadow-lg">
         {icon}
       </div>
-      <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>
+      <h3 className="text-xl font-bold mb-3 text-white">
+        <ShinyText text={title} speed={3} />
+      </h3>
       <p className="text-white/70 flex-grow">{description}</p>
       <a 
         href="#contact" 
@@ -59,11 +62,11 @@ const services = [
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="py-20 bg-[#0A0A12]">
+    <section id="services" className="py-20 bg-black">
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedContent className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block py-1 px-3 rounded-full bg-white/10 text-white text-sm font-medium mb-4">
-            Our Services
+            <ShinyText text="Our Services" speed={3} />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Accelerate your digital transformation
