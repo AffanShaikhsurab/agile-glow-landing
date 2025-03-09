@@ -11,6 +11,9 @@ interface AnimatedContentProps {
   className?: string;
   threshold?: number;
   reverse?: boolean;
+  // Add mouse event handlers
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 export const AnimatedContent: React.FC<AnimatedContentProps> = ({
@@ -23,6 +26,8 @@ export const AnimatedContent: React.FC<AnimatedContentProps> = ({
   className = "",
   threshold = 0.1,
   reverse = false,
+  onMouseEnter,
+  onMouseLeave,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -73,7 +78,13 @@ export const AnimatedContent: React.FC<AnimatedContentProps> = ({
   };
 
   return (
-    <div ref={ref} style={style} className={className}>
+    <div 
+      ref={ref} 
+      style={style} 
+      className={className}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {children}
     </div>
   );

@@ -1,7 +1,7 @@
 
 import React from "react";
 import AnimatedContent from "./AnimatedContent";
-import { Code, Rocket, Lightbulb, BarChart } from "lucide-react";
+import { Code, Rocket, Lightbulb, BarChart, ArrowRight } from "lucide-react";
 
 interface ServiceCardProps {
   icon: React.ReactNode;
